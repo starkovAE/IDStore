@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController {
     //MARK: - Настройка иконок
     private func setupItems() {
         let generalVC = GeneralViewController()
-        let catalogVC = CatalogTableViewController()
+        let catalogVC = CatalogViewController()
         let favoriteVC = FavoritesViewController()
         let profileVC = ProfileViewController()
         let basketVC = BasketViewController()

@@ -11,29 +11,56 @@ class NoveltiesCollectionViewCell: UICollectionViewCell {
     
     private let productNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Чехол Iphone"
+        label.text = "Cases for iphone"
         label.textColor = .white
         label.textAlignment = .center
-        label.font = .avenirMedium22()
+        label.font = .avenirNextDemiBold20()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Защитный чехол для Iphone 7/8"
+        label.textColor = .specialGray
+        label.textAlignment = .left
+        label.font = .avenirMedium12()
+        label.adjustsFontSizeToFitWidth = true // свойство - которое, уменьшает шрифт в зависимости от ширины label
+        label.minimumScaleFactor = 0.5
+        label.numberOfLines = 2 //свойство - которое уменьшает шрифт (шрифт на 30 % , на 50%)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let productImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "casesIphone")//?.withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage(named: "casesIphone")
+        imageView.clipsToBounds = true
         imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    let loveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "love")?.withRenderingMode(.alwaysOriginal), for: .normal) //добавляем Image из Assets
+        button.tintColor = .black // подцвечивать цветом наш текст и Image
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(loveButtonTapped), for: .touchUpInside)
+        return button
+    } ()
+    @objc private func loveButtonTapped() {
+        print("tap editing button")
+        //cellNextDelegates?.editingTapped()
+        
+    }
     
-    private let numberLabel: UILabel = {
+    private let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "iphone 7/8"
+        label.text = "600₽"
         label.textColor = .black
-        label.textAlignment = .center
-        label.font = .avenirMedium14()
+        label.textAlignment = .left
+        label.font = .avenirNextDemiBold20()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,11 +78,14 @@ class NoveltiesCollectionViewCell: UICollectionViewCell {
     //MARK: - setupViews
     private func setupViews() {
         layer.cornerRadius = 20
-        backgroundColor = .specialRed
+        backgroundColor = .white
+        addShadowOnView(setColor: .black, setOpacity: 0.7, setRadius: 2.0)
         
         addSubview(productNameLabel)
         addSubview(productImageView)
-        addSubview(numberLabel)
+        addSubview(priceLabel)
+        addSubview(loveButton)
+        addSubview(descriptionLabel)
     }
     
 //     func cellConfigure(model: ResultWorkout) { //передаем в метод структуру ResultWorkout
@@ -76,15 +106,27 @@ class NoveltiesCollectionViewCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            productImageView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 10),
-            productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            productImageView.heightAnchor.constraint(equalToConstant: 57),
-            productImageView.widthAnchor.constraint(equalToConstant: 57)
+            productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            productImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            productImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60)
         ])
         
         NSLayoutConstraint.activate([
-            numberLabel.centerYAnchor.constraint(equalTo: productImageView.centerYAnchor),
-            numberLabel.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 10)
+            priceLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 2),
+            priceLabel.leadingAnchor.constraint(equalTo:  leadingAnchor, constant: 10)
+        ])
+        NSLayoutConstraint.activate([
+            loveButton.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 2),
+            loveButton.trailingAnchor.constraint(equalTo:  trailingAnchor, constant: -10),
+            loveButton.heightAnchor.constraint(equalToConstant: 18)
+           
+        ])
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: loveButton.bottomAnchor, constant: 5),
+            descriptionLabel.trailingAnchor.constraint(equalTo:  trailingAnchor, constant: -10),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+           
         ])
     }
 }

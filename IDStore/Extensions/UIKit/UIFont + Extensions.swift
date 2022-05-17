@@ -33,6 +33,10 @@ extension UIFont { //расширение для шрифтов, которые 
         return UIFont.init(name: "Avenir-Medium", size: 22)
         
     }
+    static func sanFrancissco16() -> UIFont? {
+        return UIFont.init(name: "SanFranciscoDisplay-Black", size: 16)
+        
+    }
     
     //шрифты Bold
     static func avenirNextDemiBold16() -> UIFont? {
@@ -52,6 +56,10 @@ extension UIFont { //расширение для шрифтов, которые 
     }
     static func avenirNextDemiBold48() -> UIFont? {
         return UIFont.init(name: "AvenirNext-DemiBold", size: 48)
+        
+    }
+    static func sanFrDisplayBold24() -> UIFont? {
+        return UIFont.init(name: "SanFranciscoDisplay-Bold", size: 24)
         
     }
     

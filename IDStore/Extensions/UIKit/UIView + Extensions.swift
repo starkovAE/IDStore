@@ -8,11 +8,11 @@
 import UIKit
  //Расширение для добавлении тени к view
 extension UIView {
-    func addShadowOnView(){
-        layer.shadowColor  = UIColor.gray.cgColor
+    func addShadowOnView(setColor color: UIColor, setOpacity opacity: Float, setRadius radius: CGFloat){
+        layer.shadowColor  = color.cgColor
         layer.masksToBounds = false //маска до предела фолс
-        layer.shadowOffset = CGSize(width: 0.0, height: 3.0) //размеры
-        layer.shadowOpacity = 0.7// непрозрачность
-        layer.shadowRadius = 1.0 // радиус
+        layer.shadowOffset = CGSize(width: 0.0, height: 1.0) //размеры
+        layer.shadowOpacity = opacity// непрозрачность
+        layer.shadowRadius = radius // радиус
     }
 }

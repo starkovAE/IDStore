@@ -13,15 +13,16 @@ class GeneralViewController: UIViewController {
     //MARK: - imageStoreView
     private let imageStoreImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = #colorLiteral(red: 0.7607843137, green: 0.7607843137, blue: 0.7607843137, alpha: 1) //цвет заднего фона
+        imageView.backgroundColor = .clear //цвет заднего фона
         imageView.layer.borderWidth = 7 // ширина обводки
         imageView.layer.borderColor = UIColor.white.cgColor //назначаем цвет обводки (тип cgColor)
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "idStoreLabel")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     } ()
     //MARK: - searchInIdStore
-     private let searchGeneralView = SearchView()
+     private let locationView = LocationView()
     
     //MARK: - userNameLabel()
     
@@ -39,17 +40,18 @@ class GeneralViewController: UIViewController {
     
     //MARK: - nameTextField()
     private let searchTextField: UITextField = {
-      let textFild = UITextField()
-        textFild.backgroundColor = .specialLine
+        let textFild = UITextField()
+        textFild.backgroundColor = .specialBackground
         textFild.borderStyle = .none // свойство - стиль границы
         textFild.layer.cornerRadius = 10
-        textFild.placeholder = "Поиск В ID Store"
+        textFild.placeholder = "Поиск в ID Store"
         textFild.textColor = .specialBlack
-        textFild.font = .avenirNextDemiBold20()
+        textFild.font = .avenirMedium18()
         textFild.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFild.frame.height)) //  - добавляется маленькая (шириной 15 поинтов) прозрачная вью для того чтобы текст вводился не по самой левой границе
         textFild.leftViewMode = .always // это свойство leftViewMode устновленное в always - говорит нам о том что мы это вьюху показываем всегда (always - всегда)
         textFild.clearButtonMode = .always // это свойство clearButtonMode установленное в always - это свойство  при вводе текста появляется кнопочка, при помощи которой можно очистить textFild
         textFild.returnKeyType = .done //это свойство  returnKeyTypе (для клавиатуры) - установили ее в done - сдесь можно делать доп настройки у клавиатуры
+        textFild.addShadowOnView(setColor: .black, setOpacity: 0.7, setRadius: 3.0)
         textFild.translatesAutoresizingMaskIntoConstraints = false
     return textFild
     } ()
@@ -79,6 +81,27 @@ class GeneralViewController: UIViewController {
     }()
     private let idProfileCollectionViewCell = "idProfileCollectionViewCell"
     
+    //MARK: - telegrammButton
+    private let telegramButton: UIButton = {
+        let button = UIButton(type: .contactAdd)
+        button.setImage(UIImage(named: "message")?.withRenderingMode(.alwaysOriginal), for: .normal) //добавляем Image из Assets
+        button.layer.cornerRadius =  10
+        button.backgroundColor = .specialBackground
+        button.setTitle(" Напишите нам в Telegram", for: .normal) //добавляем заголовок, стиль нормал
+        button.titleLabel?.font = .avenirMedium16() //добавляем шрифт к нашему заголовку
+        button.tintColor = .black // подцвечивать цветом наш текст и Image
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(telegramButtonTapped), for: .touchUpInside)
+        button.addShadowOnView(setColor: .darkGray, setOpacity: 0.7, setRadius: 3.0)
+        return button
+    } ()
+    
+    @objc private func telegramButtonTapped() {
+        print("tap editing button")
+        //cellNextDelegates?.editingTapped()
+        
+    }
+    
     //MARK: - ViewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,13 +118,13 @@ class GeneralViewController: UIViewController {
     
     private func setupViews() { // в этом методе мы будем делать настройки для наших View
         view.backgroundColor = .specialBackground
-        view.addSubview(searchGeneralView)
+        view.addSubview(locationView)
         view.addSubview(imageStoreImageView) //добавили фотку на основную view
         view.addSubview(userNameLabel) //добавили label с именем пользователя на view
         view.addSubview(searchTextField)
         view.addSubview(novinkiLabel)
         view.addSubview(collectionView)
-        
+        view.addSubview(telegramButton)
         collectionView.register(NoveltiesCollectionViewCell.self, forCellWithReuseIdentifier: idProfileCollectionViewCell)
 
         
@@ -132,7 +155,7 @@ extension GeneralViewController: UICollectionViewDataSource {
 extension GeneralViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width / 2.07,
-               height: 120)
+               height: 260)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -165,17 +188,17 @@ extension GeneralViewController {
         ])
         NSLayoutConstraint.activate([
 
-            searchGeneralView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
-            searchGeneralView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            searchGeneralView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            searchGeneralView.heightAnchor.constraint(equalToConstant: 200)
+            locationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
+            locationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            locationView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            locationView.heightAnchor.constraint(equalToConstant: 200)
             
         ])
         NSLayoutConstraint.activate([
             
-            searchTextField.topAnchor.constraint(equalTo: searchGeneralView.bottomAnchor, constant: 20),
-            searchTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            searchTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            searchTextField.topAnchor.constraint(equalTo: locationView.bottomAnchor, constant: 20),
+            searchTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            searchTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             searchTextField.heightAnchor.constraint(equalToConstant: 50)
             
         ])
@@ -191,7 +214,15 @@ extension GeneralViewController {
             collectionView.topAnchor.constraint(equalTo: novinkiLabel.bottomAnchor, constant: 10),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            collectionView.heightAnchor.constraint(equalToConstant: 250)
+            collectionView.heightAnchor.constraint(equalToConstant: 280)
+
+        ])
+        NSLayoutConstraint.activate([
+
+            telegramButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10),
+            telegramButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            telegramButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            telegramButton.heightAnchor.constraint(equalToConstant: 50)
 
         ])
     }
