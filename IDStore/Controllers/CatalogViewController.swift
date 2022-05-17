@@ -23,17 +23,17 @@ class CatalogViewController: UIViewController {
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Аксессуары", "Гаджеты"])
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.backgroundColor = .specialBlackColor
+        segmentedControl.backgroundColor = .specialBackground
         segmentedControl.selectedSegmentTintColor = .specialRed
         let font = UIFont(name: "Avenir-Medium", size: 14)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any,
-                                                 NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+                                                 NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any,
-                                                 NSAttributedString.Key.foregroundColor: UIColor.black],
+                                                 NSAttributedString.Key.foregroundColor: UIColor.white],
                                                 for: .selected)
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        //segmentedControl.addShadowOnView(setColor: .black)
+        //segmentedControl.addShadowOnView(setColor: .specialGray, setOpacity: 0.5, setRadius: 0.6)
         return segmentedControl
     } ()
     
@@ -63,7 +63,7 @@ class CatalogViewController: UIViewController {
         textField.leftViewMode = .always
         textField.clearButtonMode = .always
         textField.returnKeyType = .done
-        textField.addShadowOnView(setColor: .black, setOpacity: 0.7, setRadius: 2.0)
+        textField.addShadowOnView(setColor: .black, setOpacity: 0.5, setRadius: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -73,7 +73,7 @@ class CatalogViewController: UIViewController {
         tableView.backgroundColor = .none
         tableView.separatorStyle = .none //разделяющие линии убрали
         tableView.bounces = false //чтобы не оттягивалось
-        tableView.showsVerticalScrollIndicator = false //не показывает скролл индикатор
+        tableView.showsVerticalScrollIndicator = true //не показывает скролл индикатор
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     } ()

@@ -51,7 +51,7 @@ class GeneralViewController: UIViewController {
         textFild.leftViewMode = .always // это свойство leftViewMode устновленное в always - говорит нам о том что мы это вьюху показываем всегда (always - всегда)
         textFild.clearButtonMode = .always // это свойство clearButtonMode установленное в always - это свойство  при вводе текста появляется кнопочка, при помощи которой можно очистить textFild
         textFild.returnKeyType = .done //это свойство  returnKeyTypе (для клавиатуры) - установили ее в done - сдесь можно делать доп настройки у клавиатуры
-        textFild.addShadowOnView(setColor: .black, setOpacity: 0.7, setRadius: 3.0)
+        textFild.addShadowOnView(setColor: .black, setOpacity: 0.5, setRadius: 1.0)
         textFild.translatesAutoresizingMaskIntoConstraints = false
     return textFild
     } ()
@@ -92,7 +92,7 @@ class GeneralViewController: UIViewController {
         button.tintColor = .black // подцвечивать цветом наш текст и Image
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(telegramButtonTapped), for: .touchUpInside)
-        button.addShadowOnView(setColor: .darkGray, setOpacity: 0.7, setRadius: 3.0)
+        button.addShadowOnView(setColor: .darkGray, setOpacity: 0.8, setRadius: 1.0)
         return button
     } ()
     
