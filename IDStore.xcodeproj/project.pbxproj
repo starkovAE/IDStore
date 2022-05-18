@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F8439EC2831752A00AA56AD /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8439EB2831752A00AA56AD /* LocationView.swift */; };
 		3F8439EF28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8439EE28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift */; };
+		3FBC9B5128357ADE006FF3C9 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC9B5028357ADE006FF3C9 /* UIView + Extension.swift */; };
+		3FBC9B5328357F9C006FF3C9 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC9B5228357F9C006FF3C9 /* UIButton + Extension.swift */; };
 		3FBFA22E283393C8000342F2 /* CatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFA22D283393C8000342F2 /* CatalogTableViewCell.swift */; };
 		3FBFA23228340AC1000342F2 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFA23128340AC1000342F2 /* FavoritesTableViewCell.swift */; };
 		3FD0EDDE282E30A100C0FD32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EDDD282E30A100C0FD32 /* AppDelegate.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		3F8439EB2831752A00AA56AD /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		3F8439EE28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveltiesCollectionViewCell.swift; sourceTree = "<group>"; };
+		3FBC9B5028357ADE006FF3C9 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		3FBC9B5228357F9C006FF3C9 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		3FBFA22D283393C8000342F2 /* CatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewCell.swift; sourceTree = "<group>"; };
 		3FBFA23128340AC1000342F2 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		3FD0EDDA282E30A100C0FD32 /* IDStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,8 @@
 				3FD0EE06282E36AA00C0FD32 /* UIView + Extensions.swift */,
 				3FD0EE08282E36C600C0FD32 /* UIColor + Extensions.swift */,
 				3FD0EE0A282E36ED00C0FD32 /* UILabel + Extensions.swift */,
+				3FBC9B5028357ADE006FF3C9 /* UIView + Extension.swift */,
+				3FBC9B5228357F9C006FF3C9 /* UIButton + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -282,9 +288,11 @@
 				3FD0EDF7282E34A900C0FD32 /* CatalogViewController.swift in Sources */,
 				3FD0EDFF282E357A00C0FD32 /* MainTabBarController.swift in Sources */,
 				3FD0EE07282E36AA00C0FD32 /* UIView + Extensions.swift in Sources */,
+				3FBC9B5328357F9C006FF3C9 /* UIButton + Extension.swift in Sources */,
 				3FD0EDDE282E30A100C0FD32 /* AppDelegate.swift in Sources */,
 				3FD0EE0B282E36ED00C0FD32 /* UILabel + Extensions.swift in Sources */,
 				3FD0EDE0282E30A100C0FD32 /* SceneDelegate.swift in Sources */,
+				3FBC9B5128357ADE006FF3C9 /* UIView + Extension.swift in Sources */,
 				3FD0EE09282E36C600C0FD32 /* UIColor + Extensions.swift in Sources */,
 				3FBFA22E283393C8000342F2 /* CatalogTableViewCell.swift in Sources */,
 				3F8439EC2831752A00AA56AD /* LocationView.swift in Sources */,

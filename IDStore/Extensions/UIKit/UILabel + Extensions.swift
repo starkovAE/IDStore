@@ -10,8 +10,9 @@ extension UILabel {
    convenience init(text: String = "") { // convenience  init - обозначает вспомогательный инициализатор
        self.init()
        self.text = text
-       self.font = .avenirMedium14()
+       self.font = .avenirNextDemiBold20()
        self.textColor = .specialBlack
+       self.alpha = 1.0
        self.translatesAutoresizingMaskIntoConstraints = false
    }
 }
