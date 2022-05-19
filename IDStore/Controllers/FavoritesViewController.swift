@@ -27,7 +27,7 @@ class FavoritesViewController: UIViewController {
         
         label.textColor = .black
         label.textAlignment = .center
-        label.isHidden = false
+        label.isHidden = true
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -39,7 +39,7 @@ class FavoritesViewController: UIViewController {
         label.font = .avenirNextDemiBold20()
         label.textColor = .specialDarkGrey
         label.textAlignment = .center
-        label.isHidden = false
+        label.isHidden = true
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,9 +50,10 @@ class FavoritesViewController: UIViewController {
         imageView.image = UIImage(named: "heart") //добавил картинку no traning
         imageView.contentMode = .scaleAspectFit //Возможность масштабировать содержимое в соответствии с размером представления, сохраняя соотношение сторон.
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = false // свойство, которое позволяет скрывать view. Эта вью сейчас скрыта
+        imageView.isHidden = true // свойство, которое позволяет скрывать view. Эта вью сейчас скрыта
       return imageView
     } ()
+    
     //MARK: - searchFavoritesTextField
     private let searchFavoritesTextField: UITextField = {
         let textField = UITextField()
@@ -69,10 +70,11 @@ class FavoritesViewController: UIViewController {
         textField.addShadowOnView(setColor: .black, setOpacity: 0.7, setRadius: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         
-        textField.isHidden = true
+        textField.isHidden = false
         
         return textField
     }()
+    private let backgroundTableView = UIView(setColor: .white, setRadius: 20, setAlpha: 1.0)
     
     
     //MARK: - Создание tableView
@@ -84,7 +86,7 @@ class FavoritesViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = true //не показывает скролл индикатор
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.isHidden = true
+        tableView.isHidden = false
         
         return tableView
     } ()
@@ -113,12 +115,14 @@ class FavoritesViewController: UIViewController {
         
         view.addSubview(favoritesLabel)
         view.addSubview(searchFavoritesTextField)
-        view.addSubview(favoritesTableView)
+       // view.addSubview(favoritesTableView)
         favoritesTableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: idFavoritesTableViewCell) //зарегистрировали ячейку
         
         view.addSubview(notFavoritesLabel)
         view.addSubview(notFavDesriprtionLabel)
         view.addSubview(noFavoriteImageView)
+        view.addSubview(backgroundTableView)
+        backgroundTableView.addSubview(favoritesTableView)
     }
     
     //MARK: - setDelegates()
@@ -147,10 +151,10 @@ extension FavoritesViewController {
         ])
         
         NSLayoutConstraint.activate([
-            favoritesTableView.topAnchor.constraint(equalTo: searchFavoritesTextField.bottomAnchor, constant: 10),
-            favoritesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            favoritesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            favoritesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            favoritesTableView.topAnchor.constraint(equalTo: backgroundTableView.topAnchor, constant: 5),
+            favoritesTableView.leadingAnchor.constraint(equalTo: backgroundTableView.leadingAnchor, constant: 5),
+            favoritesTableView.trailingAnchor.constraint(equalTo: backgroundTableView.trailingAnchor, constant: -5),
+            favoritesTableView.bottomAnchor.constraint(equalTo: backgroundTableView.bottomAnchor, constant: -10)
 
         ])
         NSLayoutConstraint.activate([
@@ -168,6 +172,12 @@ extension FavoritesViewController {
             notFavDesriprtionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             notFavDesriprtionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             notFavDesriprtionLabel.topAnchor.constraint(equalTo: notFavoritesLabel.bottomAnchor, constant: 20)
+        ])
+        NSLayoutConstraint.activate([
+            backgroundTableView.topAnchor.constraint(equalTo: searchFavoritesTextField.bottomAnchor, constant: 10),
+            backgroundTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            backgroundTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            backgroundTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }  
 }

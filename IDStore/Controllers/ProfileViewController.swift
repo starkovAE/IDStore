@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Foundation
 class ProfileViewController: UIViewController {
     
     private let profileLabel: UILabel = {
@@ -65,6 +65,17 @@ class ProfileViewController: UIViewController {
     //MARK: - backgroundTableView
     private let backgroundTableView = UIView(setColor: .white, setRadius: 20, setAlpha: 1.0)
     
+    //MARK: - ordersTableView
+    private let ordersTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .none
+        tableView.separatorStyle = .none //разделяющие линии убрали
+        tableView.bounces = false //чтобы не оттягивалось
+        tableView.showsVerticalScrollIndicator = true //не показывает скролл индикатор
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return  tableView
+    } ()
+    private let idOrdersTableViewCell = "idOrdersTableViewCell"
     //MARK: -  ordersLabel
     private let ordersLabel = UILabel(text: "Заказы")
     
@@ -76,13 +87,73 @@ class ProfileViewController: UIViewController {
     private let connectionLabel = UILabel(text: "Мы в соц-сетях")
     
     private let connectImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.image = UIImage(named: "message")
         imageView.clipsToBounds = true
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    //MARK: - instaButton
+    let instaButton = UIButton(setImageName: "insta", setSelector: #selector(instaButtonTapped), setTarget: self)
+    @objc private func instaButtonTapped() {
+        print("tap editing button")
+        //cellNextDelegates?.editingTapped()
+        
+    }
+    //MARK: - vkButton
+    let vkButton = UIButton(setImageName: "vk", setSelector: #selector(instaButtonTapped), setTarget: self)
+    @objc private func vkButtonTapped() {
+        print("tap editing button")
+        //cellNextDelegates?.editingTapped()
+        
+    }
+    //MARK: - telegaButton
+    let telegaButton = UIButton(setImageName: "telega", setSelector: #selector(instaButtonTapped), setTarget: self)
+    @objc private func telegaButtonTapped() {
+        print("tap editing button")
+        //cellNextDelegates?.editingTapped()
+        
+    }
+    //    //MARK: - buttonStackView
+    //    private var buttonStackView: UIStackView = {
+    //        let stackView = UIStackView()
+    //        stackView.axis = .horizontal
+    //        stackView.spacing = 5
+    //        stackView.alignment = .fill
+    //        stackView.distribution = .fill
+    //        stackView.translatesAutoresizingMaskIntoConstraints = false
+    //        return stackView
+    //    } ()
+    //
+    private let questionsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "arrowshape.turn.up.right")?.withRenderingMode(.alwaysOriginal), for: .normal) //добавляем Image из Assets
+        button.setTitle("Часто задаваемые вопросы      ", for: .normal) //добавляем заголовок, стиль нормал
+        button.titleLabel?.font = .avenirNextDemiBold20() //добавляем шрифт к нашему заголовку
+        button.tintColor = .black // подцвечивать цветом наш текст и Image
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .white
+        button.addShadowOnView(setColor: .black, setOpacity: 0.1, setRadius: 0.2)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0,
+                                              left: 300,
+                                              bottom: 0,
+                                              right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0,
+                                              left: 0,
+                                              bottom: 0,
+                                              right: 0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(questionsButtonTapped), for: .touchUpInside)
+        return button
+    } ()
+    @objc private func questionsButtonTapped() {
+        print("tap editing button")
+        //cellNextDelegates?.editingTapped()
+        
+    }
+    
+    
     //MARK: - setupViews
     private func setupViews() {
         view.backgroundColor = .specialBackground
@@ -96,11 +167,22 @@ class ProfileViewController: UIViewController {
         view.addSubview(backgroundConnectionView)
         backgroundConnectionView.addSubview(connectionLabel)
         backgroundConnectionView.addSubview(connectImageView)
+        backgroundTableView.addSubview(ordersTableView)
         
+        //       buttonStackView = UIStackView(arrangedSubviews: [instaButton, vkButton, telegaButton])
+        
+        
+        backgroundConnectionView.addSubview(instaButton)
+        backgroundConnectionView.addSubview(vkButton)
+        backgroundConnectionView.addSubview(telegaButton)
+        backgroundConnectionView.addSubview(questionsButton)
+        ordersTableView.register(OrdersTableViewCell.self, forCellReuseIdentifier: idOrdersTableViewCell) //зарегистрировали ячейку
         
     }
     //MARK: - setDelegates()
     private func setDelegates() {
+        ordersTableView.delegate = self
+        ordersTableView.dataSource = self
         
     }
     
@@ -117,6 +199,35 @@ class ProfileViewController: UIViewController {
     
     
 } //закрывает класс
+
+
+//MARK: - Extension - UITableViewDelegate
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
+}
+//MARK: - Extension - UITableViewDataSource
+extension ProfileViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        20
+        //        isFiltred ? filtredArray.count: differenceArray.count //если isFiltred тру тогда возвращаем filtredArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idOrdersTableViewCell, for: indexPath) as! OrdersTableViewCell
+        
+        //        let differenceModel = (isFiltred ? filtredArray[indexPath.row] : differenceArray[indexPath.row]) //для конфигурирования ячейки
+        //        cell.cellConfigure(differenceWorkout: differenceModel)
+        return cell
+    }
+}
+
+
+
+
+
 
 //MARK: - extension
 extension ProfileViewController {
@@ -148,7 +259,7 @@ extension ProfileViewController {
             backgroundTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backgroundTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             backgroundTableView.heightAnchor.constraint(equalToConstant: 300)
-        
+            
         ])
         NSLayoutConstraint.activate([
             ordersLabel.topAnchor.constraint(equalTo: backgroundTableView.topAnchor, constant: 5),
@@ -172,15 +283,50 @@ extension ProfileViewController {
             
         ])
         NSLayoutConstraint.activate([
-            connectionLabel.topAnchor.constraint(equalTo: backgroundConnectionView.topAnchor, constant: 5),
-            connectionLabel.leadingAnchor.constraint(equalTo: connectImageView.trailingAnchor, constant: 10)
+            connectImageView.topAnchor.constraint(equalTo: backgroundConnectionView.topAnchor, constant: 7),
+            connectImageView.leadingAnchor.constraint(equalTo: connectionLabel.trailingAnchor, constant: 10)
             
             
         ])
         NSLayoutConstraint.activate([
-            connectImageView.topAnchor.constraint(equalTo: backgroundConnectionView.topAnchor, constant: 7),
-            connectImageView.leadingAnchor.constraint(equalTo: backgroundConnectionView.leadingAnchor, constant: 10)
+            connectionLabel.topAnchor.constraint(equalTo: backgroundConnectionView.topAnchor, constant: 5),
+            connectionLabel.leadingAnchor.constraint(equalTo: backgroundConnectionView.leadingAnchor, constant: 10)
             
+            
+        ])
+        NSLayoutConstraint.activate([
+            ordersTableView.topAnchor.constraint(equalTo: ordersLabel.bottomAnchor, constant: 5),
+            ordersTableView.leadingAnchor.constraint(equalTo: backgroundTableView.leadingAnchor, constant: 5),
+            ordersTableView.trailingAnchor.constraint(equalTo: backgroundTableView.trailingAnchor, constant: -5),
+            ordersTableView.bottomAnchor.constraint(equalTo: backgroundTableView.bottomAnchor, constant: -5),
+            
+        ])
+        NSLayoutConstraint.activate([
+            instaButton.topAnchor.constraint(equalTo: connectionLabel.bottomAnchor, constant: 20),
+            instaButton.leadingAnchor.constraint(equalTo: backgroundConnectionView.leadingAnchor, constant: 40),
+            instaButton.heightAnchor.constraint(equalToConstant: 60),
+            instaButton.widthAnchor.constraint(equalToConstant: 60)
+            
+        ])
+        NSLayoutConstraint.activate([
+            vkButton.topAnchor.constraint(equalTo: connectionLabel.bottomAnchor, constant: 20),
+            vkButton.leadingAnchor.constraint(equalTo: instaButton.trailingAnchor, constant: 50),
+            vkButton.heightAnchor.constraint(equalToConstant: 60),
+            vkButton.widthAnchor.constraint(equalToConstant: 60)
+            
+        ])
+        NSLayoutConstraint.activate([
+            telegaButton.topAnchor.constraint(equalTo: connectionLabel.bottomAnchor, constant: 20),
+            telegaButton.leadingAnchor.constraint(equalTo: vkButton.trailingAnchor, constant: 50),
+            telegaButton.heightAnchor.constraint(equalToConstant: 60),
+            telegaButton.widthAnchor.constraint(equalToConstant: 60)
+            
+        ])
+        NSLayoutConstraint.activate([
+            questionsButton.topAnchor.constraint(equalTo: instaButton.bottomAnchor, constant: 10),
+            questionsButton.leadingAnchor.constraint(equalTo: backgroundConnectionView.leadingAnchor, constant: 20),
+            questionsButton.heightAnchor.constraint(equalToConstant: 60)
+           // questionsButton.trailingAnchor.constraint(equalTo: backgroundConnectionView.trailingAnchor, constant: -20)
             
         ])
     }

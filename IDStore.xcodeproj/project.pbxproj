@@ -27,6 +27,7 @@
 		3FD0EE07282E36AA00C0FD32 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EE06282E36AA00C0FD32 /* UIView + Extensions.swift */; };
 		3FD0EE09282E36C600C0FD32 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EE08282E36C600C0FD32 /* UIColor + Extensions.swift */; };
 		3FD0EE0B282E36ED00C0FD32 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EE0A282E36ED00C0FD32 /* UILabel + Extensions.swift */; };
+		3FF5C1DC2836799700DC08C6 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C1DB2836799700DC08C6 /* OrdersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		3FD0EE06282E36AA00C0FD32 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		3FD0EE08282E36C600C0FD32 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		3FD0EE0A282E36ED00C0FD32 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
+		3FF5C1DB2836799700DC08C6 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 		3FD0EE0D282E569D00C0FD32 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3FF5C1D92836796700DC08C6 /* ProfileView */,
 				3FBFA22F28340A9A000342F2 /* FavoritesView */,
 				3FBFA22B2833938B000342F2 /* CatalogView */,
 				3FD0EE0E282E56A700C0FD32 /* GeneralVC */,
@@ -211,6 +214,22 @@
 				3F8439EB2831752A00AA56AD /* LocationView.swift */,
 			);
 			path = GeneralVC;
+			sourceTree = "<group>";
+		};
+		3FF5C1D92836796700DC08C6 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5C1DA2836797C00DC08C6 /* OrdersCell */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		3FF5C1DA2836797C00DC08C6 /* OrdersCell */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5C1DB2836799700DC08C6 /* OrdersTableViewCell.swift */,
+			);
+			path = OrdersCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +320,7 @@
 				3FBFA23228340AC1000342F2 /* FavoritesTableViewCell.swift in Sources */,
 				3FD0EDFD282E353700C0FD32 /* BasketViewController.swift in Sources */,
 				3FD0EDF5282E343300C0FD32 /* GeneralViewController.swift in Sources */,
+				3FF5C1DC2836799700DC08C6 /* OrdersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
