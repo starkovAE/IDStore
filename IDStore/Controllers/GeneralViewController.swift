@@ -28,7 +28,7 @@ class GeneralViewController: UIViewController {
     
     private let userNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Привет, Сабина!"
+        label.text = "Привет, Александр!"
         label.textColor = .specialBlack
         label.font = .avenirMedium18()
         label.adjustsFontSizeToFitWidth = true // свойство - которое, уменьшает шрифт в зависимости от ширины label
