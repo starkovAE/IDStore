@@ -55,7 +55,7 @@ class ActiveBasketView: UIView {
         button.tintColor = .black // подцвечивать цветом наш текст и Image
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(goButtonTapped), for: .touchUpInside)
-        button.addShadowOnView(setColor: .darkGray, setOpacity: 0.4, setRadius: 1.0)
+       
       return button
     } ()
     

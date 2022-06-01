@@ -29,6 +29,12 @@
 		3FD0EE07282E36AA00C0FD32 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EE06282E36AA00C0FD32 /* UIView + Extensions.swift */; };
 		3FD0EE09282E36C600C0FD32 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EE08282E36C600C0FD32 /* UIColor + Extensions.swift */; };
 		3FD0EE0B282E36ED00C0FD32 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0EE0A282E36ED00C0FD32 /* UILabel + Extensions.swift */; };
+		3FDE0494284750ED0035C030 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE0493284750ED0035C030 /* Realm */; };
+		3FDE0496284750ED0035C030 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE0495284750ED0035C030 /* RealmSwift */; };
+		3FDE0499284752C40035C030 /* ProfileUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0498284752C40035C030 /* ProfileUserModel.swift */; };
+		3FDE049C284752F20035C030 /* ProfileManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE049B284752F20035C030 /* ProfileManagerModel.swift */; };
+		3FDE049F284753650035C030 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE049E284753650035C030 /* ProductModel.swift */; };
+		3FDE04A2284758ED0035C030 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE04A1284758ED0035C030 /* RealmManager.swift */; };
 		3FF5C1DC2836799700DC08C6 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C1DB2836799700DC08C6 /* OrdersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +63,10 @@
 		3FD0EE06282E36AA00C0FD32 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		3FD0EE08282E36C600C0FD32 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		3FD0EE0A282E36ED00C0FD32 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
+		3FDE0498284752C40035C030 /* ProfileUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserModel.swift; sourceTree = "<group>"; };
+		3FDE049B284752F20035C030 /* ProfileManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManagerModel.swift; sourceTree = "<group>"; };
+		3FDE049E284753650035C030 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		3FDE04A1284758ED0035C030 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		3FF5C1DB2836799700DC08C6 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDE0496284750ED0035C030 /* RealmSwift in Frameworks */,
+				3FDE0494284750ED0035C030 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +171,7 @@
 				3FD0EE0D282E569D00C0FD32 /* View */,
 				3FD0EDF1282E336A00C0FD32 /* Controllers */,
 				3FD0EE02282E35DF00C0FD32 /* Extensions */,
+				3FDE04A0284758C20035C030 /* Services */,
 				3FD0EDF2282E338300C0FD32 /* Resourses */,
 			);
 			path = IDStore;
@@ -199,6 +212,9 @@
 		3FD0EE01282E359300C0FD32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3FDE049D284752F80035C030 /* ProductModel */,
+				3FDE049A284752D10035C030 /* ProfileManager */,
+				3FDE04972847529D0035C030 /* ProfileUser */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +262,38 @@
 			path = GeneralVC;
 			sourceTree = "<group>";
 		};
+		3FDE04972847529D0035C030 /* ProfileUser */ = {
+			isa = PBXGroup;
+			children = (
+				3FDE0498284752C40035C030 /* ProfileUserModel.swift */,
+			);
+			path = ProfileUser;
+			sourceTree = "<group>";
+		};
+		3FDE049A284752D10035C030 /* ProfileManager */ = {
+			isa = PBXGroup;
+			children = (
+				3FDE049B284752F20035C030 /* ProfileManagerModel.swift */,
+			);
+			path = ProfileManager;
+			sourceTree = "<group>";
+		};
+		3FDE049D284752F80035C030 /* ProductModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FDE049E284753650035C030 /* ProductModel.swift */,
+			);
+			path = ProductModel;
+			sourceTree = "<group>";
+		};
+		3FDE04A0284758C20035C030 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3FDE04A1284758ED0035C030 /* RealmManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3FF5C1D92836796700DC08C6 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +326,10 @@
 			dependencies = (
 			);
 			name = IDStore;
+			packageProductDependencies = (
+				3FDE0493284750ED0035C030 /* Realm */,
+				3FDE0495284750ED0035C030 /* RealmSwift */,
+			);
 			productName = IDStore;
 			productReference = 3FD0EDDA282E30A100C0FD32 /* IDStore.app */;
 			productType = "com.apple.product-type.application";
@@ -306,6 +358,9 @@
 				Base,
 			);
 			mainGroup = 3FD0EDD1282E30A100C0FD32;
+			packageReferences = (
+				3FDE0492284750ED0035C030 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 3FD0EDDB282E30A100C0FD32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -338,6 +393,8 @@
 				3FD0EDFF282E357A00C0FD32 /* MainTabBarController.swift in Sources */,
 				3FD0EE07282E36AA00C0FD32 /* UIView + Extensions.swift in Sources */,
 				3FBC9B5328357F9C006FF3C9 /* UIButton + Extension.swift in Sources */,
+				3FDE0499284752C40035C030 /* ProfileUserModel.swift in Sources */,
+				3FDE049F284753650035C030 /* ProductModel.swift in Sources */,
 				3FD0EDDE282E30A100C0FD32 /* AppDelegate.swift in Sources */,
 				3FD0EE0B282E36ED00C0FD32 /* UILabel + Extensions.swift in Sources */,
 				3FD0EDE0282E30A100C0FD32 /* SceneDelegate.swift in Sources */,
@@ -346,11 +403,13 @@
 				3FBFA22E283393C8000342F2 /* CatalogTableViewCell.swift in Sources */,
 				3F8439EC2831752A00AA56AD /* LocationView.swift in Sources */,
 				3FD0EDFB282E351400C0FD32 /* ProfileViewController.swift in Sources */,
+				3FDE049C284752F20035C030 /* ProfileManagerModel.swift in Sources */,
 				3F8B727B283F9303008D5F0C /* ActiveBasketView.swift in Sources */,
 				3FD0EDF9282E34E800C0FD32 /* FavoritesViewController.swift in Sources */,
 				3FBFA23228340AC1000342F2 /* FavoritesTableViewCell.swift in Sources */,
 				3FD0EDFD282E353700C0FD32 /* BasketViewController.swift in Sources */,
 				3FD0EDF5282E343300C0FD32 /* GeneralViewController.swift in Sources */,
+				3FDE04A2284758ED0035C030 /* RealmManager.swift in Sources */,
 				3F8B727F2843837E008D5F0C /* PurchaseTableViewCell.swift in Sources */,
 				3FF5C1DC2836799700DC08C6 /* OrdersTableViewCell.swift in Sources */,
 			);
@@ -568,6 +627,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3FDE0492284750ED0035C030 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FDE0493284750ED0035C030 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FDE0492284750ED0035C030 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		3FDE0495284750ED0035C030 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FDE0492284750ED0035C030 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FD0EDD2282E30A100C0FD32 /* Project object */;
 }
