@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3F48C4284940940028A4A1 /* ManagerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F48C3284940940028A4A1 /* ManagerProfileController.swift */; };
+		3F3F48C6284940BB0028A4A1 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F48C5284940BB0028A4A1 /* UserProfileController.swift */; };
+		3F3F48C8284940DE0028A4A1 /* AddNewProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F48C7284940DE0028A4A1 /* AddNewProductController.swift */; };
+		3F3F48CA284941DE0028A4A1 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F48C9284941DE0028A4A1 /* ProductController.swift */; };
 		3F8439EC2831752A00AA56AD /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8439EB2831752A00AA56AD /* LocationView.swift */; };
 		3F8439EF28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8439EE28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift */; };
 		3F8B727B283F9303008D5F0C /* ActiveBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B727A283F9303008D5F0C /* ActiveBasketView.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3F48C3284940940028A4A1 /* ManagerProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProfileController.swift; sourceTree = "<group>"; };
+		3F3F48C5284940BB0028A4A1 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		3F3F48C7284940DE0028A4A1 /* AddNewProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductController.swift; sourceTree = "<group>"; };
+		3F3F48C9284941DE0028A4A1 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		3F8439EB2831752A00AA56AD /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		3F8439EE28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoveltiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F8B727A283F9303008D5F0C /* ActiveBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBasketView.swift; sourceTree = "<group>"; };
@@ -186,6 +194,10 @@
 				3FD0EDFA282E351400C0FD32 /* ProfileViewController.swift */,
 				3FD0EDFC282E353700C0FD32 /* BasketViewController.swift */,
 				3FD0EDFE282E357A00C0FD32 /* MainTabBarController.swift */,
+				3F3F48C3284940940028A4A1 /* ManagerProfileController.swift */,
+				3F3F48C5284940BB0028A4A1 /* UserProfileController.swift */,
+				3F3F48C7284940DE0028A4A1 /* AddNewProductController.swift */,
+				3F3F48C9284941DE0028A4A1 /* ProductController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -390,6 +402,8 @@
 				3F8439EF28318EEA00AA56AD /* NoveltiesCollectionViewCell.swift in Sources */,
 				3FD0EE05282E368600C0FD32 /* UIFont + Extensions.swift in Sources */,
 				3FD0EDF7282E34A900C0FD32 /* CatalogViewController.swift in Sources */,
+				3F3F48C4284940940028A4A1 /* ManagerProfileController.swift in Sources */,
+				3F3F48C8284940DE0028A4A1 /* AddNewProductController.swift in Sources */,
 				3FD0EDFF282E357A00C0FD32 /* MainTabBarController.swift in Sources */,
 				3FD0EE07282E36AA00C0FD32 /* UIView + Extensions.swift in Sources */,
 				3FBC9B5328357F9C006FF3C9 /* UIButton + Extension.swift in Sources */,
@@ -398,6 +412,7 @@
 				3FD0EDDE282E30A100C0FD32 /* AppDelegate.swift in Sources */,
 				3FD0EE0B282E36ED00C0FD32 /* UILabel + Extensions.swift in Sources */,
 				3FD0EDE0282E30A100C0FD32 /* SceneDelegate.swift in Sources */,
+				3F3F48CA284941DE0028A4A1 /* ProductController.swift in Sources */,
 				3FBC9B5128357ADE006FF3C9 /* UIView + Extension.swift in Sources */,
 				3FD0EE09282E36C600C0FD32 /* UIColor + Extensions.swift in Sources */,
 				3FBFA22E283393C8000342F2 /* CatalogTableViewCell.swift in Sources */,
@@ -412,6 +427,7 @@
 				3FDE04A2284758ED0035C030 /* RealmManager.swift in Sources */,
 				3F8B727F2843837E008D5F0C /* PurchaseTableViewCell.swift in Sources */,
 				3FF5C1DC2836799700DC08C6 /* OrdersTableViewCell.swift in Sources */,
+				3F3F48C6284940BB0028A4A1 /* UserProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
